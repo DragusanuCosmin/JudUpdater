@@ -1,6 +1,6 @@
 package com.example.judupdater.Service;
 
-import com.example.judupdater.Entities.Message;
+import com.example.judupdater.Entities.Dosare;
 import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,13 +13,13 @@ public class KafkaProducerService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(KafkaProducerService.class);
 
-    private final KafkaTemplate<String, Message> kafkaTemplate;
+    private final KafkaTemplate<String, Dosare> kafkaTemplate;
 
-    public KafkaProducerService(KafkaTemplate<String, Message> kafkaTemplate) {
+    public KafkaProducerService(KafkaTemplate<String, Dosare> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public void send(String topicName, String key, Message value) {
+    public void send(String topicName, String key, Dosare value) {
         var future = kafkaTemplate.send(topicName, key, value);
 
         future.whenComplete((sendResult, exception) -> {
