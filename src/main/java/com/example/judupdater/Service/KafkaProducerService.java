@@ -1,9 +1,9 @@
-package com.example.judupdater.service;
+package com.example.judupdater.Service;
 
+import com.example.judupdater.Entities.Message;
 import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +13,13 @@ public class KafkaProducerService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(KafkaProducerService.class);
 
-    @Autowired
-    KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, Message> kafkaTemplate;
 
-    public void send(String topicName, String key, String value) {
+    public KafkaProducerService(KafkaTemplate<String, Message> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
+    public void send(String topicName, String key, Message value) {
         var future = kafkaTemplate.send(topicName, key, value);
 
         future.whenComplete((sendResult, exception) -> {
@@ -26,7 +28,7 @@ public class KafkaProducerService {
             } else {
                 future.complete(sendResult);
             }
-            LOGGER.info("Task status send to Kafka topic : "+ value);
+            LOGGER.info("Task status send to Kafka topic : " + value);
         });
     }
 }
