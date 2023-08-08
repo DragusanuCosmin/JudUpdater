@@ -15,7 +15,7 @@ public class DosareDataAccessService implements DosareDao {
     }
     @Override
     public Optional<List<Dosare>> getDosare(int clientId) {
-        final String sql="SELECT * from dosare where clientId = ?";
+        final String sql="SELECT * from dosare_clienti where id_client = ?";
         try {
             return Optional.of(jdbcTemplate.query(sql, new DosareRowMapper(), clientId));
         } catch (RuntimeException e) {

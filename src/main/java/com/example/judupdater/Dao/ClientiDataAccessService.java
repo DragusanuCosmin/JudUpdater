@@ -1,6 +1,9 @@
 package com.example.judupdater.Dao;
 
 import com.example.judupdater.Entities.Clienti;
+import com.example.judupdater.Entities.ContacteClienti;
+import com.example.judupdater.Mapper.ClientiRowMapper;
+import com.example.judupdater.Mapper.ContacteClientiRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -12,11 +15,16 @@ public class ClientiDataAccessService implements ClientiDao{
     }
 
     @Override
-    public Clienti getClienti(int dosarId) {
-        final String sql="SELECT c.*" +
-                "FROM dosar d" +
-                "JOIN clienti c ON d.clientId = c.clientId" +
-                "WHERE d.dosarId = ?";
-        return jdbcTemplate.update(sql, dosarId);
+    @Deprecated
+    public ContacteClienti getClienti(int dosarId) {
+        final String sql= "SELECT c.* FROM dosare_clienti d JOIN clienti c ON d.id_client = c.id WHERE d.id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{dosarId}, new ContacteClientiRowMapper());
+    }
+
+    @Override
+    @Deprecated
+    public Clienti gasireClient(int id) {
+        final String sql= "SELECT * FROM clienti WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{id}, new ClientiRowMapper());
     }
 }

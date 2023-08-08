@@ -1,7 +1,6 @@
 package com.example.judupdater.Listener;
 
 import com.example.judupdater.Dao.ClientiDao;
-import com.example.judupdater.Dao.ClientiDataAccessService;
 import com.example.judupdater.Email.EmailService;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -20,7 +19,7 @@ public class KafkaMessageListener {
     public void listen(int dosarId) {
         System.out.println("S-a introdus dosarul nr: " + dosarId);
         emailSenderService.sendMessage("luci@ctce.ro" , "Noutati in dosarul" + dosarId, "Modificari in dosarul" + dosarId);
-        System.out.println("S-a gasit detinatorul dosarului " + dosarId+":"+clientiDao.getClienti(dosarId).getNume()+"si emailul:"+clientiDao.getClienti(dosarId).getEmail());
+        System.out.println("S-a gasit detinatorul dosarului " + dosarId+":"+"si se va trimite mail la adresa:"+clientiDao.getClienti(dosarId).getEmail());
     }
 
 }
