@@ -24,6 +24,7 @@ public class ClientiRowMapper implements RowMapper<Clienti> {
             dataCreare= rs.getDate("dataCreare");
             valid = rs.getString("valid");
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
         return new Clienti(id,denumire,licenta,detalii,dataCreare,valid);
