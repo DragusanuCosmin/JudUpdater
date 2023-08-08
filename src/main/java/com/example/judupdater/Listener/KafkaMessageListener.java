@@ -1,20 +1,27 @@
 package com.example.judupdater.Listener;
 
+import com.example.judupdater.Dao.ClientiDao;
+import com.example.judupdater.Dao.ClientiDataAccessService;
 import com.example.judupdater.Email.EmailService;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 @Component
 public class KafkaMessageListener {
+    private final EmailService emailSenderService;
+    private final ClientiDao clientiDao;
     @Autowired
-    private EmailService emailSenderService;
+    public KafkaMessageListener(EmailService emailSenderService, ClientiDao clientiDao){
+        this.emailSenderService = emailSenderService;
+        this.clientiDao = clientiDao;
+    }
     //@Autowired
     //private SearchDosarOwner searchDosarOwner;
     @KafkaListener(topics = "dosare_noi", groupId = "test-consumer-group")
-    public void listen(String in) {
-        System.out.println("S-a introdus dosarul nr: " + in);
-        emailSenderService.sendMessage("luci@ctce.ro" , "Noutati in dosarul" + in, "Modificari in dosarul" + in);
-      //  searchDosarOwner.sendEmailForDosar(in);
+    public void listen(int dosarId) {
+        System.out.println("S-a introdus dosarul nr: " + dosarId);
+        emailSenderService.sendMessage("luci@ctce.ro" , "Noutati in dosarul" + dosarId, "Modificari in dosarul" + dosarId);
+        System.out.println("S-a gasit detinatorul dosarului " + dosarId+":"+clientiDao.getClienti(dosarId).getNume());
     }
 
 }

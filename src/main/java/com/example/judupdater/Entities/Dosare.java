@@ -4,12 +4,12 @@ public class Dosare {
     private int id;
     private int idClient;
     private String numarDosar;
-    private char notifEmail;
-    private char notifSMS;
+    private String notifEmail;
+    private String notifSMS;
     private String detaliiDosar;
     private long timestamp;
 
-    public Dosare(int id, int idClient, String numarDosar, char notifEmail, char notifSMS, String detaliiDosar, long timestamp) {
+    public Dosare(int id, int idClient, String numarDosar, String notifEmail, String notifSMS, String detaliiDosar, long timestamp) {
         this.id = id;
         this.idClient = idClient;
         this.numarDosar = numarDosar;
@@ -43,19 +43,19 @@ public class Dosare {
         this.numarDosar = numarDosar;
     }
 
-    public char getNotifEmail() {
+    public String getNotifEmail() {
         return notifEmail;
     }
 
-    public void setNotifEmail(char notifEmail) {
+    public void setNotifEmail(String notifEmail) {
         this.notifEmail = notifEmail;
     }
 
-    public char getNotifSMS() {
+    public String getNotifSMS() {
         return notifSMS;
     }
 
-    public void setNotifSMS(char notifSMS) {
+    public void setNotifSMS(String notifSMS) {
         this.notifSMS = notifSMS;
     }
 

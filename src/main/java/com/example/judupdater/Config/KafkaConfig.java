@@ -1,4 +1,4 @@
-package com.example.judupdater.config;
+package com.example.judupdater.Config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -22,7 +22,6 @@ public class KafkaConfig {
     {
         Map<String, Object> config = new HashMap<>();
 
-        // Adding the Configuration
         config.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
                 "192.168.3.89:9092");
         config.put(ConsumerConfig.GROUP_ID_CONFIG,
