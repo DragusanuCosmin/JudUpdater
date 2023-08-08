@@ -50,8 +50,8 @@ public class Clienti {
         this.data_creare = data_creare;
     }
 
-    public String getValid() {
-        return valid;
+    public boolean isValid() {
+        return valid.equals("Y");
     }
 
     public void setValid(String valid) {

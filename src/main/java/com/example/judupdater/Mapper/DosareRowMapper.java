@@ -3,7 +3,6 @@ package com.example.judupdater.Mapper;
 import com.example.judupdater.Entities.Dosare;
 import org.springframework.jdbc.core.RowMapper;
 
-import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

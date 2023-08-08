@@ -16,13 +16,6 @@ public class ClientiDataAccessService implements ClientiDao{
 
     @Override
     @Deprecated
-    public ContacteClienti getClienti(int dosarId) {
-        final String sql= "SELECT c.* FROM dosare_clienti d JOIN clienti c ON d.id_client = c.id WHERE d.id = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{dosarId}, new ContacteClientiRowMapper());
-    }
-
-    @Override
-    @Deprecated
     public Clienti gasireClient(int id) {
         final String sql= "SELECT * FROM clienti WHERE id = ?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, new ClientiRowMapper());

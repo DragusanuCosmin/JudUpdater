@@ -39,8 +39,8 @@ public class ContacteClienti {
         this.email = email;
     }
 
-    public String getValid() {
-        return valid;
+    public boolean isValid() {
+        return valid=="Y";
     }
 
     public void setValid(String valid) {
