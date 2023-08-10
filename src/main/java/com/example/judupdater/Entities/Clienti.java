@@ -1,14 +1,10 @@
 package com.example.judupdater.Entities;
 
-import java.util.Date;
-
 public class Clienti {
-    private String denumire;
-    private String licenta;
-    private String detalii;
-    private Date data_creare;
-    private String valid;
     private int id;
+    private String email;
+    private String telefon;
+    private String firebaseId;
 
     public int getId() {
         return id;
@@ -17,54 +13,35 @@ public class Clienti {
     public void setId(int id) {
         this.id = id;
     }
-
-    public String getDenumire() {
-        return denumire;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDenumire(String denumire) {
-        this.denumire = denumire;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getLicenta() {
-        return licenta;
+    public String getTelefon() {
+        return telefon;
     }
 
-    public void setLicenta(String licenta) {
-        this.licenta = licenta;
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
     }
 
-    public String getDetalii() {
-        return detalii;
+    public String getFirebaseId() {
+        return firebaseId;
     }
 
-    public void setDetalii(String detalii) {
-        this.detalii = detalii;
+    public void setFirebaseId(String firebaseId) {
+        this.firebaseId = firebaseId;
     }
 
-    public Date getData_creare() {
-        return data_creare;
-    }
-
-    public void setData_creare(Date data_creare) {
-        this.data_creare = data_creare;
-    }
-
-    public boolean isValid() {
-        return valid.equals("Y");
-    }
-
-    public void setValid(String valid) {
-        this.valid = valid;
-    }
-
-    public Clienti(int id, String denumire, String licenta, String detalii,Date data_creare, String valid) {
+    public Clienti(int id, String email, String telefon, String firebaseId) {
+        this.email = email;
+        this.telefon = telefon;
         this.id = id;
-        this.denumire = denumire;
-        this.licenta = licenta;
-        this.detalii = detalii;
-        this.data_creare = data_creare;
-        this.valid = valid;
+        this.firebaseId = firebaseId;
     }
 
 }

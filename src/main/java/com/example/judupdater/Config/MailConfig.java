@@ -1,4 +1,4 @@
-package com.example.judupdater.Email;
+package com.example.judupdater.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,9 +1,7 @@
 package com.example.judupdater.Dao;
 
 import com.example.judupdater.Entities.Clienti;
-import com.example.judupdater.Entities.ContacteClienti;
 import com.example.judupdater.Mapper.ClientiRowMapper;
-import com.example.judupdater.Mapper.ContacteClientiRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
