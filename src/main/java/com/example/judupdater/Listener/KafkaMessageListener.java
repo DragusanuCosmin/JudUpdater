@@ -17,6 +17,7 @@ public class KafkaMessageListener {
     }
     @KafkaListener(topics = "dosare_noi", groupId = "test-consumer-group")
     public void listen(int dosarId) {
+        emailSenderService.sendMessage("ctce@gmail.com","Schimbarea dosarului" , String.format("Dosarul cu numarul %d a fost schimbat", dosarId));
     }
 
 }

@@ -1,9 +1,7 @@
 package com.example.judupdater.Entities;
 
 import java.util.Date;
-enum Modalitate {
-    email,sms,push
-}
+
 
 public class IstoricNotificari {
     private int id;
