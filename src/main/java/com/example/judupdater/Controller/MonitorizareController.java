@@ -1,2 +1,3 @@
-package com.example.judupdater.Controller;public class MonitorizareController {
+package com.example.judupdater.Controller;
+public class MonitorizareController {
 }
