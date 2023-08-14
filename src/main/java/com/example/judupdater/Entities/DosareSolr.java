@@ -1,56 +1,111 @@
 package com.example.judupdater.Entities;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import org.springframework.data.solr.core.mapping.Indexed;
 
 public class DosareSolr {
-    private int id;
-    private LocalDateTime data;
-    private LocalDateTime datamodificarii;
+    @Indexed(name = "id", type = "FieldType.TrieIntField")
+    private String id;
+    @Indexed(name = "data", type = "FieldType.TrieDateField")
+    private String data;
+    @Indexed(name = "datamodificarii", type = "FieldType.TrieDateField")
+    private String datamodificarii;
+    @Indexed(name = "numardosar", type = "FieldType.TextField")
     private String numarDosar;
+    @Indexed(name = "numardosarvechi", type = "FieldType.TextField")
     private String numarDosarVechi;
+    @Indexed(name = "iddosar", type = "FieldType.TrieIntField")
+    private String idDosar;
+    @Indexed(name = "institutie", type = "FieldType.TextField")
     private String institutie;
+    @Indexed(name = "stadiu", type = "FieldType.TextField")
     private String stadiu;
+    @Indexed(name = "sectie", type = "FieldType.TextField")
     private String sectie;
+    @Indexed(name = "obiect", type = "FieldType.TextField")
     private String obiect;
+    @Indexed(name = "calitateparte", type = "FieldType.TextField")
     private String[] calitateparte;
-    private String [] numeparte;
+    @Indexed(name = "numeparte", type = "FieldType.TextField")
+    private String[] numeparte;
+    @Indexed(name = "materie", type = "FieldType.TextField")
     private String materie;
-    private LocalTime ora;
-    private LocalDateTime datadocument;
+    @Indexed(name = "ora", type = "FieldType.TextField")
+    private String ora;
+    @Indexed(name = "datadocument", type = "FieldType.TrieDateField")
+    private String datadocument;
+    @Indexed(name = "solutie", type = "FieldType.TextField")
     private String solutie;
+    @Indexed(name = "solutiesumar", type = "FieldType.TextField")
     private String solutiesumar;
+    @Indexed(name = "numardocument", type = "FieldType.TextField")
     private String numardocument;
-    private LocalDateTime datapronuntare;
+    @Indexed(name = "datapronuntare", type = "FieldType.TrieDateField")
+    private String datapronuntare;
+    @Indexed(name = "documentsedinta", type = "FieldType.TextField")
     private String documentsedinta;
-    private LocalDateTime datasedinta;
+    @Indexed(name = "datasedinta", type = "FieldType.TrieDateField")
+    private String datasedinta;
+    @Indexed(name = "complet", type = "FieldType.TextField")
     private String complet;
+    @Indexed(name = "tipcaleatac", type = "FieldType.TextField")
     private String tipcaleatac;
-    private LocalDateTime datadeclarare;
+    @Indexed(name = "datadeclarare", type = "FieldType.TrieDateField")
+    private String datadeclarare;
+    @Indexed(name = "partedeclaratoare", type = "FieldType.TextField")
     private String partedeclaratoare;
+    @Indexed(name = "numardosarexact", type = "FieldType.TextField")
     private String numardosarexact;
 
-    public int getId() {
+    public DosareSolr(String id, String data, String datamodificarii, String numarDosar, String numarDosarVechi, String idDosar, String institutie, String stadiu, String sectie, String obiect, String[] calitateparte, String[] numeparte, String materie, String ora, String datadocument, String solutie, String solutiesumar, String numardocument, String datapronuntare, String documentsedinta, String datasedinta, String complet, String tipcaleatac, String datadeclarare, String partedeclaratoare, String numardosarexact) {
+        this.id = id;
+        this.data = data;
+        this.datamodificarii = datamodificarii;
+        this.numarDosar = numarDosar;
+        this.numarDosarVechi = numarDosarVechi;
+        this.idDosar = idDosar;
+        this.institutie = institutie;
+        this.stadiu = stadiu;
+        this.sectie = sectie;
+        this.obiect = obiect;
+        this.calitateparte = calitateparte;
+        this.numeparte = numeparte;
+        this.materie = materie;
+        this.ora = ora;
+        this.datadocument = datadocument;
+        this.solutie = solutie;
+        this.solutiesumar = solutiesumar;
+        this.numardocument = numardocument;
+        this.datapronuntare = datapronuntare;
+        this.documentsedinta = documentsedinta;
+        this.datasedinta = datasedinta;
+        this.complet = complet;
+        this.tipcaleatac = tipcaleatac;
+        this.datadeclarare = datadeclarare;
+        this.partedeclaratoare = partedeclaratoare;
+        this.numardosarexact = numardosarexact;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public LocalDateTime getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(String data) {
         this.data = data;
     }
 
-    public LocalDateTime getDatamodificarii() {
+    public String getDatamodificarii() {
         return datamodificarii;
     }
 
-    public void setDatamodificarii(LocalDateTime datamodificarii) {
+    public void setDatamodificarii(String datamodificarii) {
         this.datamodificarii = datamodificarii;
     }
 
@@ -68,6 +123,14 @@ public class DosareSolr {
 
     public void setNumarDosarVechi(String numarDosarVechi) {
         this.numarDosarVechi = numarDosarVechi;
+    }
+
+    public String getIdDosar() {
+        return idDosar;
+    }
+
+    public void setIdDosar(String idDosar) {
+        this.idDosar = idDosar;
     }
 
     public String getInstitutie() {
@@ -126,19 +189,19 @@ public class DosareSolr {
         this.materie = materie;
     }
 
-    public LocalTime getOra() {
+    public String getOra() {
         return ora;
     }
 
-    public void setOra(LocalTime ora) {
+    public void setOra(String ora) {
         this.ora = ora;
     }
 
-    public LocalDateTime getDatadocument() {
+    public String getDatadocument() {
         return datadocument;
     }
 
-    public void setDatadocument(LocalDateTime datadocument) {
+    public void setDatadocument(String datadocument) {
         this.datadocument = datadocument;
     }
 
@@ -166,11 +229,11 @@ public class DosareSolr {
         this.numardocument = numardocument;
     }
 
-    public LocalDateTime getDatapronuntare() {
+    public String getDatapronuntare() {
         return datapronuntare;
     }
 
-    public void setDatapronuntare(LocalDateTime datapronuntare) {
+    public void setDatapronuntare(String datapronuntare) {
         this.datapronuntare = datapronuntare;
     }
 
@@ -182,11 +245,11 @@ public class DosareSolr {
         this.documentsedinta = documentsedinta;
     }
 
-    public LocalDateTime getDatasedinta() {
+    public String getDatasedinta() {
         return datasedinta;
     }
 
-    public void setDatasedinta(LocalDateTime datasedinta) {
+    public void setDatasedinta(String datasedinta) {
         this.datasedinta = datasedinta;
     }
 
@@ -206,11 +269,11 @@ public class DosareSolr {
         this.tipcaleatac = tipcaleatac;
     }
 
-    public LocalDateTime getDatadeclarare() {
+    public String getDatadeclarare() {
         return datadeclarare;
     }
 
-    public void setDatadeclarare(LocalDateTime datadeclarare) {
+    public void setDatadeclarare(String datadeclarare) {
         this.datadeclarare = datadeclarare;
     }
 
