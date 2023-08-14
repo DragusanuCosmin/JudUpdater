@@ -9,9 +9,8 @@ import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 
 @Configuration
-@EnableSolrRepositories(
-        basePackages = "com.example.judupdater.Repository",
-        namedQueriesLocation = "classpath:solr-named-queries.properties")
+@EnableSolrRepositories
+
 @ComponentScan
 public class SolrConfig {
 

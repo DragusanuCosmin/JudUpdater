@@ -48,11 +48,6 @@
             <artifactId>spring-kafka</artifactId>
             <version>3.0.9</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-solr</artifactId>
-            <version>2.4.13</version>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -80,8 +75,10 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-solr</artifactId>
-            <version>4.3.14</version>
+            <version>4.2.9.RELEASE</version>
         </dependency>
+
+
 
 
     </dependencies>

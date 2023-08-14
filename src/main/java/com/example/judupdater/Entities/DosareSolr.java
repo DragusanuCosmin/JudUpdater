@@ -1,68 +1,73 @@
 package com.example.judupdater.Entities;
 
+import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.solr.core.mapping.Indexed;
 
-public class DosareSolr {
-    @Indexed(name = "id", type = "FieldType.TrieIntField")
-    private String id;
-    @Indexed(name = "data", type = "FieldType.TrieDateField")
-    private String data;
-    @Indexed(name = "datamodificarii", type = "FieldType.TrieDateField")
-    private String datamodificarii;
-    @Indexed(name = "numardosar", type = "FieldType.TextField")
-    private String numarDosar;
-    @Indexed(name = "numardosarvechi", type = "FieldType.TextField")
-    private String numarDosarVechi;
-    @Indexed(name = "iddosar", type = "FieldType.TrieIntField")
-    private String idDosar;
-    @Indexed(name = "institutie", type = "FieldType.TextField")
-    private String institutie;
-    @Indexed(name = "stadiu", type = "FieldType.TextField")
-    private String stadiu;
-    @Indexed(name = "sectie", type = "FieldType.TextField")
-    private String sectie;
-    @Indexed(name = "obiect", type = "FieldType.TextField")
-    private String obiect;
-    @Indexed(name = "calitateparte", type = "FieldType.TextField")
-    private String[] calitateparte;
-    @Indexed(name = "numeparte", type = "FieldType.TextField")
-    private String[] numeparte;
-    @Indexed(name = "materie", type = "FieldType.TextField")
-    private String materie;
-    @Indexed(name = "ora", type = "FieldType.TextField")
-    private String ora;
-    @Indexed(name = "datadocument", type = "FieldType.TrieDateField")
-    private String datadocument;
-    @Indexed(name = "solutie", type = "FieldType.TextField")
-    private String solutie;
-    @Indexed(name = "solutiesumar", type = "FieldType.TextField")
-    private String solutiesumar;
-    @Indexed(name = "numardocument", type = "FieldType.TextField")
-    private String numardocument;
-    @Indexed(name = "datapronuntare", type = "FieldType.TrieDateField")
-    private String datapronuntare;
-    @Indexed(name = "documentsedinta", type = "FieldType.TextField")
-    private String documentsedinta;
-    @Indexed(name = "datasedinta", type = "FieldType.TrieDateField")
-    private String datasedinta;
-    @Indexed(name = "complet", type = "FieldType.TextField")
-    private String complet;
-    @Indexed(name = "tipcaleatac", type = "FieldType.TextField")
-    private String tipcaleatac;
-    @Indexed(name = "datadeclarare", type = "FieldType.TrieDateField")
-    private String datadeclarare;
-    @Indexed(name = "partedeclaratoare", type = "FieldType.TextField")
-    private String partedeclaratoare;
-    @Indexed(name = "numardosarexact", type = "FieldType.TextField")
-    private String numardosarexact;
+import java.util.Arrays;
 
-    public DosareSolr(String id, String data, String datamodificarii, String numarDosar, String numarDosarVechi, String idDosar, String institutie, String stadiu, String sectie, String obiect, String[] calitateparte, String[] numeparte, String materie, String ora, String datadocument, String solutie, String solutiesumar, String numardocument, String datapronuntare, String documentsedinta, String datasedinta, String complet, String tipcaleatac, String datadeclarare, String partedeclaratoare, String numardosarexact) {
+public class DosareSolr {
+    @Field
+    private String id;
+    @Field
+    private String data;
+    @Field
+    private String datamodificarii;
+    @Field
+    private String numardosar;
+    @Field
+    private String numardosarvechi;
+    @Field
+    private String iddosar;
+    @Field
+    private String institutie;
+    @Field
+    private String stadiu;
+    @Field
+    private String sectie;
+    @Field
+    private String obiect;
+    @Field
+    private String[] calitateparte;
+    @Field
+    private String[] numeparte;
+    @Field
+    private String materie;
+    @Field
+    private String ora;
+    @Field
+    private String datadocument;
+    @Field
+    private String solutie;
+    @Field
+    private String solutiesumar;
+    @Field
+    private String numardocument;
+    @Field
+    private String datapronuntare;
+    @Field
+    private String documentsedinta;
+    @Field
+    private String datasedinta;
+    @Field
+    private String complet;
+    @Field
+    private String tipcaleatac;
+    @Field
+    private String datadeclarare;
+    @Field
+    private String partedeclaratoare;
+    @Field
+    private String numardosarexact;
+    @Field
+    private String version;
+
+    public DosareSolr(String id, String data, String datamodificarii, String numardosar, String numardosarvechi, String iddosar, String institutie, String stadiu, String sectie, String obiect, String[] calitateparte, String[] numeparte, String materie, String ora, String datadocument, String solutie, String solutiesumar, String numardocument, String datapronuntare, String documentsedinta, String datasedinta, String complet, String tipcaleatac, String datadeclarare, String partedeclaratoare, String numardosarexact,String version) {
         this.id = id;
         this.data = data;
         this.datamodificarii = datamodificarii;
-        this.numarDosar = numarDosar;
-        this.numarDosarVechi = numarDosarVechi;
-        this.idDosar = idDosar;
+        this.numardosar = numardosar;
+        this.numardosarvechi = numardosarvechi;
+        this.iddosar = iddosar;
         this.institutie = institutie;
         this.stadiu = stadiu;
         this.sectie = sectie;
@@ -83,6 +88,7 @@ public class DosareSolr {
         this.datadeclarare = datadeclarare;
         this.partedeclaratoare = partedeclaratoare;
         this.numardosarexact = numardosarexact;
+        this.version = version;
     }
 
     public String getId() {
@@ -107,30 +113,6 @@ public class DosareSolr {
 
     public void setDatamodificarii(String datamodificarii) {
         this.datamodificarii = datamodificarii;
-    }
-
-    public String getNumarDosar() {
-        return numarDosar;
-    }
-
-    public void setNumarDosar(String numarDosar) {
-        this.numarDosar = numarDosar;
-    }
-
-    public String getNumarDosarVechi() {
-        return numarDosarVechi;
-    }
-
-    public void setNumarDosarVechi(String numarDosarVechi) {
-        this.numarDosarVechi = numarDosarVechi;
-    }
-
-    public String getIdDosar() {
-        return idDosar;
-    }
-
-    public void setIdDosar(String idDosar) {
-        this.idDosar = idDosar;
     }
 
     public String getInstitutie() {
@@ -292,4 +274,70 @@ public class DosareSolr {
     public void setNumardosarexact(String numardosarexact) {
         this.numardosarexact = numardosarexact;
     }
+
+    public String getNumardosar() {
+        return numardosar;
+    }
+
+    public void setNumardosar(String numardosar) {
+        this.numardosar = numardosar;
+    }
+
+    public String getNumardosarvechi() {
+        return numardosarvechi;
+    }
+
+    public void setNumardosarvechi(String numardosarvechi) {
+        this.numardosarvechi = numardosarvechi;
+    }
+
+    public String getIddosar() {
+        return iddosar;
+    }
+
+    public void setIddosar(String iddosar) {
+        this.iddosar = iddosar;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "docs: [{" +
+                "\"id\": " + id + ", " +
+                "\"data\": \"" + data + "\", " +
+                "\"datamodificarii\": \"" + datamodificarii + "\", " +
+                "\"numardosar\": \"" + numardosar + "\", " +
+                "\"numardosarvechi\": \"" + numardosarvechi + "\", " +
+                "\"iddosar\": " + iddosar + ", " +
+                "\"institutie\": \"" + institutie + "\", " +
+                "\"stadiu\": \"" + stadiu + "\", " +
+                "\"sectie\": \"" + sectie + "\", " +
+                "\"obiect\": \"" + obiect + "\", " +
+                "\"calitateparte\": " + Arrays.toString(calitateparte) + ", " +
+                "\"numeparte\": " + Arrays.toString(numeparte) + ", " +
+                "\"materie\": \"" + materie + "\", " +
+                "\"ora\": " + ora + ", " +
+                "\"datadocument\": " + datadocument + ", " +
+                "\"solutie\": " + solutie + ", " +
+                "\"solutiesumar\": " + solutiesumar + ", " +
+                "\"numardocument\": " + numardocument + ", " +
+                "\"datapronuntare\": " + datapronuntare + ", " +
+                "\"documentsedinta\": " + documentsedinta + ", " +
+                "\"datasedinta\": " + datasedinta + ", " +
+                "\"complet\": " + complet + ", " +
+                "\"tipcaleatac\": " + tipcaleatac +", " +
+                "\"datadeclarare\": [\""+datadeclarare+"\"], " +
+                "\"partedeclaratoare\": ["+partedeclaratoare+"], " +
+                "\"numardosarexact\": \"" + numardosarexact +"\", " +
+                "\"_version_\": " + version +
+                "}]";
+    }
+
 }
