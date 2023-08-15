@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.solr.client.solrj.beans.Field;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.SolrDocument;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.Arrays;
 @Getter
 @Setter
 public class DosareSolr {
+    @Id
     @Field
     private String id;
     @Field
