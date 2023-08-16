@@ -20,7 +20,7 @@ public class KafkaMessageListener {
         int dosarId = Integer.parseInt(dosarIdString.split("/")[0]);
         int clientId = Integer.parseInt(dosarIdString.split("/")[1]);
         System.out.println("Dosarul cu numarul " + dosarId + " a fost schimbat");
-        //emailSenderService.sendMessage("ctce@gmail.com","Schimbarea dosarului" , String.format("Dosarul cu numarul %d a fost schimbat", dosarId));
+        emailSenderService.sendMessage("gabrielcosmin402@gmail.com","Schimbarea dosarului" , String.format("Dosarul cu numarul %d a fost schimbat", dosarId));
     }
 
 }
