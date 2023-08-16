@@ -15,7 +15,7 @@ public class MonitorizareController {
     }
 
     @GetMapping("/email")
-    public void sendMail() {
-        emailSenderService.sendMessage("cosmind668@gmail.com","Schimbarea dosarului" , "Schimbarea dosarului");
+    public void sendMail() throws RuntimeException{
+        emailSenderService.sendMessage("gabrielcosmin402@gmail.com","Test Email" , "Schimbarea dosarului");
     }
 }
