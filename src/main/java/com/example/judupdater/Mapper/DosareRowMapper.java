@@ -23,11 +23,19 @@ public class DosareRowMapper implements RowMapper<DosareMonitorizate> {
             id = rs.getInt("id");
             idClient = rs.getInt("idClient");
             numarDosar = rs.getString("numarDosar");
-            switch (rs.getString("aplicatie")) {
-                case "ILEGIS" -> aplicatie = Aplicatie.ILEGIS;
-                case "ILEGIS_MOBILE" -> aplicatie = Aplicatie.ILEGIS_MOBILE;
-                case "JURISTPRO_LIGHT" -> aplicatie = Aplicatie.JURISTPRO_LIGHT;
-                case "JURISTPRO_PRO" -> aplicatie = Aplicatie.JURISTPRO_PRO;
+            switch(rs.getString("aplicatioe")){
+                case "ILEGIS":
+                    aplicatie = Aplicatie.ILEGIS;
+                    break;
+                    case "ILEGIS_MOBILE":
+                    aplicatie = Aplicatie.ILEGIS_MOBILE;
+                    break;
+                    case "JURISTPRO_LIGHT":
+                    aplicatie = Aplicatie.JURISTPRO_LIGHT;
+                    break;
+                    case "JURISTPRO_PRO":
+                    aplicatie = Aplicatie.JURISTPRO_PRO;
+                    break;
             }
             instanta = rs.getString("instanta");
             contIlegis = new iLegisUser(rs.getString("nume"), rs.getString("parola"));
