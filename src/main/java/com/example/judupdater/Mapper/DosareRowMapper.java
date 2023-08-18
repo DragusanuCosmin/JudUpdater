@@ -1,8 +1,6 @@
 package com.example.judupdater.Mapper;
 
-import com.example.judupdater.Entities.Aplicatie;
 import com.example.judupdater.Entities.DosareMonitorizate;
-import com.example.judupdater.Entities.iLegisUser;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -15,34 +13,23 @@ public class DosareRowMapper implements RowMapper<DosareMonitorizate> {
          int id;
          int idClient;
          String numarDosar;
-         Aplicatie aplicatie=null;
+         String aplicatie;
          String instanta;
-         iLegisUser contIlegis;
+         String contIlegis;
          Date dataMonitorizare;
+         boolean activ;
         try {
             id = rs.getInt("id");
-            idClient = rs.getInt("idClient");
-            numarDosar = rs.getString("numarDosar");
-            switch(rs.getString("aplicatioe")){
-                case "ILEGIS":
-                    aplicatie = Aplicatie.ILEGIS;
-                    break;
-                    case "ILEGIS_MOBILE":
-                    aplicatie = Aplicatie.ILEGIS_MOBILE;
-                    break;
-                    case "JURISTPRO_LIGHT":
-                    aplicatie = Aplicatie.JURISTPRO_LIGHT;
-                    break;
-                    case "JURISTPRO_PRO":
-                    aplicatie = Aplicatie.JURISTPRO_PRO;
-                    break;
-            }
-            instanta = rs.getString("instanta");
-            contIlegis = new iLegisUser(rs.getString("nume"), rs.getString("parola"));
-            dataMonitorizare = rs.getDate("dataMonitorizare");
+            idClient = rs.getInt("id_dlient");
+            numarDosar = rs.getString("nr_dosar");
+            aplicatie=rs.getString("aplicatie_monitorizare");
+            instanta = rs.getString("instanta_monitorizare");
+            contIlegis = rs.getString("cont_ilegis");
+            dataMonitorizare = rs.getDate("data_monitorizare");
+            activ=rs.getInt("activ")==1;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return new DosareMonitorizate(id,idClient,numarDosar,aplicatie,instanta,contIlegis,dataMonitorizare);
+        return new DosareMonitorizate(id,idClient,numarDosar,aplicatie,instanta,contIlegis,dataMonitorizare,activ);
     }
 }

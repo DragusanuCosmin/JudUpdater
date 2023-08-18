@@ -13,8 +13,9 @@ public class DosareMonitorizate {
     private int id;
     private int idClient;
     private String numarDosar;
-    private Aplicatie  aplicatie;
+    private String aplicatie;
     private String instanta;
-    private iLegisUser contIlegis;
+    private String contIlegis;
     private Date dataMonitorizare;
+    private boolean activ;
 }

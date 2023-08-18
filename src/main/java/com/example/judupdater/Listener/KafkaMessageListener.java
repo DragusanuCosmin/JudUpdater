@@ -21,7 +21,8 @@ public class KafkaMessageListener {
         int clientId = Integer.parseInt(dosarIdString.split("/")[1]);
         System.out.println("Dosarul cu numarul " + dosarId + " a fost schimbat");
         try {
-            emailSenderService.sendMessage("gabrielcosmin402@gmail.com","Schimbarea dosarului" , String.format("Dosarul cu numarul %d a fost schimbat", dosarId));
+            System.out.println(dosarIdString);
+           // emailSenderService.sendMessage("gabrielcosmin402@gmail.com","Schimbarea dosarului" , String.format("Dosarul cu numarul %d a fost schimbat", dosarId));
         } catch (RuntimeException e) {
             throw new RuntimeException(e);
         }

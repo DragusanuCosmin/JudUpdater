@@ -1,21 +1,33 @@
 package com.example.judupdater.Controller;
 
-import com.example.judupdater.Email.EmailService;
+import com.example.judupdater.Entities.DosareMonitorizate;
+import com.example.judupdater.Service.MonitorizareService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/dosare")
+@RequestMapping("/monitorizare")
 public class MonitorizareController {
-    private final EmailService emailSenderService;
+    private final MonitorizareService service;
     @Autowired
 
-    public MonitorizareController(EmailService emailSenderService) {
-        this.emailSenderService = emailSenderService;
+    public MonitorizareController(MonitorizareService service) {
+        this.service = service;
     }
-
-    @GetMapping("/email")
-    public void sendMail() throws RuntimeException{
-        emailSenderService.sendMessage("gabrielcosmin402@gmail.com","Test Email" , "Schimbarea dosarului");
+    @PostMapping("/adaugaremonitorizare")
+    public void AdaugareMonitorizare(@RequestBody DosareMonitorizate dosareMonitorizate) {
+        service.AdaugareMonitorizare(dosareMonitorizate);
+    }
+    @DeleteMapping("/scoatere")
+    public void ScoatereMonitorizare(@RequestBody DosareMonitorizate dosareMonitorizate){
+        service.ScoatereMonitorizare(dosareMonitorizate);
+    }
+    @PutMapping("/dezactivare")
+    public void DeactivareMonitorizare(@RequestBody DosareMonitorizate dosareMonitorizate){
+        service.DeactivareMonitorizare(dosareMonitorizate);
+    }
+    @PutMapping("/reactivare")
+    public void ReactivareMonitorizare(@RequestBody DosareMonitorizate dosareMonitorizate){
+        service.ReactivareMonitorizare(dosareMonitorizate);
     }
 }
