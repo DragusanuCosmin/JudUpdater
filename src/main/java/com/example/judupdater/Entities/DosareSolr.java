@@ -69,6 +69,6 @@ import java.util.List;
         @Field
         String numardosarvechi;
         @Field
-        String sha256xmldosar;
+        String numardosarexact;
 
 }
