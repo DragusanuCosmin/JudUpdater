@@ -1,27 +1,30 @@
 package com.example.judupdater.Controller;
 import com.example.judupdater.Entities.DosareSolr;
-import com.example.judupdater.Repository.DosarSolrRepository;
+import com.example.judupdater.Service.DosarSolrService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@RequestMapping("/dosare")
-
 @RestController
+@RequestMapping("/dosare")
+@Api(tags = "Dosare")
 public class DosareSolrController {
-    public final DosarSolrRepository repository;
+    public final DosarSolrService service;
     public final JdbcTemplate jdbcTemplate;
     @Autowired
-    public DosareSolrController(DosarSolrRepository repository,JdbcTemplate jdbcTemplate) {
-        this.repository = repository;
+    public DosareSolrController(DosarSolrService service, JdbcTemplate jdbcTemplate) {
+        this.service = service;
         this.jdbcTemplate = jdbcTemplate;
     }
     @PutMapping("/actualizaredosar")
+    @ApiOperation("Endpoint to update files")
         public void ActualizareDosar(@RequestBody String nrdosar) {
-            Page<DosareSolr> dosare = repository.findByNumardosarContainingCustom(nrdosar, PageRequest.of(0, 10));
+        System.out.println(nrdosar);
+            Page<DosareSolr> dosare = service.findByNumardosar(nrdosar);
             try {
                 if (dosare.hasContent()) {
                     List<DosareSolr> dosareList = dosare.getContent();

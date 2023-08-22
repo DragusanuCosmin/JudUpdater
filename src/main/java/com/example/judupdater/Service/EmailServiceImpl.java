@@ -1,7 +1,7 @@
-package com.example.judupdater.Email;
+package com.example.judupdater.Service;
 
+import com.example.judupdater.Service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;

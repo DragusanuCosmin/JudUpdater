@@ -10,14 +10,14 @@ import java.util.Date;
 public class DosareRowMapper implements RowMapper<DosareMonitorizate> {
     @Override
     public DosareMonitorizate mapRow(ResultSet rs, int rowNum) {
-         int id;
-         int idClient;
-         String numarDosar;
-         String aplicatie;
-         String instanta;
-         String contIlegis;
-         Date dataMonitorizare;
-         boolean activ;
+        int id;
+        int idClient;
+        String numarDosar;
+        String aplicatie;
+        String instanta;
+        String contIlegis;
+        Date dataMonitorizare;
+        boolean activ;
         try {
             id = rs.getInt("id");
             idClient = rs.getInt("id_dlient");

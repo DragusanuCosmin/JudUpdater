@@ -12,7 +12,7 @@ import org.springframework.data.solr.repository.config.EnableSolrRepositories;
 @Configuration
 @Log4j2
 @EnableSolrRepositories(
-        basePackages = "com.example.judupdater.Repository")
+        basePackages = "com.example.judupdater.Dao")
 public class SolrConfig {
     String solrURL="http://192.168.3.39:8984/solr";
 
