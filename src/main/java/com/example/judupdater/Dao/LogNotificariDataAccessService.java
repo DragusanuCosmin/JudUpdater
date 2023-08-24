@@ -17,6 +17,7 @@ import java.util.Date;
 @Repository("IstoricNotificariDao")
 public class LogNotificariDataAccessService implements LogNotificariDao {
     public final JdbcTemplate jdbcTemplate;
+    final String LOG_FILE_PATH = "./istoricnotificari.log";
     @Autowired
     public LogNotificariDataAccessService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -24,14 +25,28 @@ public class LogNotificariDataAccessService implements LogNotificariDao {
 
     @Override
     public void save(String idClient, String idDosar,String actiune) {
-        final String LOG_FILE_PATH = "./istoricnotificari.log";
         try {
             int lastId = getLastWrittenId();
             int newId = lastId + 1;
             String timestamp = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
-            String logMessage = timestamp + ":Notificare nr." + newId + " Notificare pentru " + actiune +
+            String logMessage = timestamp + ":Notificare nr." + newId + ":: Notificare pentru " + actiune +
                     " trimisa la adresa " + gasireClient(idClient).getEmail() +
                     " in dosarul cu numarul " + gasireDosar(idDosar).getNumardosar() + "\n";
+
+            FileWriter fileWriter = new FileWriter(LOG_FILE_PATH, true);
+            fileWriter.write(logMessage);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void customsave(String message){
+        try {
+            int lastId = getLastWrittenId();
+            int newId = lastId + 1;
+            String timestamp = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
+            String logMessage = timestamp + ":Notificare nr." + newId +"::"+ message+ "\n";
 
             FileWriter fileWriter = new FileWriter(LOG_FILE_PATH, true);
             fileWriter.write(logMessage);

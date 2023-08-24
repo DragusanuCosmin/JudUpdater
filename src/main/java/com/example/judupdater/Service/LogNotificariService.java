@@ -14,4 +14,7 @@ public class LogNotificariService {
     public void save(String idClient, String idDosar, String actiune){
         logNotificariDao.save(idClient, idDosar, actiune);
     }
+    public void customsave(String message){
+        logNotificariDao.customsave(message);
+    }
 }

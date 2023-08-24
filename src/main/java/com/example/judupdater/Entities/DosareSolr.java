@@ -64,10 +64,6 @@ import java.util.List;
         List<String> partedeclaratoare;
         @Field
         List<String> tipcaleatac;
-
-
-        @Field
-        String numardosarvechi;
         @Field
         String numardosarexact;
 

@@ -52,10 +52,6 @@ public class DosareSolrRowMapper implements RowMapper<DosareSolr> {
         List<String> partedeclaratoare;
         
         List<String> tipcaleatac;
-
-
-        
-        String numardosarvechi;
         
         String numardosarexact;
         try {
@@ -83,7 +79,6 @@ public class DosareSolrRowMapper implements RowMapper<DosareSolr> {
             datadeclarare.set(0,rs.getDate("datadeclarare"));
             partedeclaratoare = Collections.singletonList(rs.getString("partedeclaratoare"));
             tipcaleatac = Collections.singletonList(rs.getString("tipcaleatac"));
-            numardosarvechi = rs.getString("numardosarvechi");
             numardosarexact = rs.getString("numardosarexact");
 
         } catch (SQLException e) {
@@ -91,6 +86,6 @@ public class DosareSolrRowMapper implements RowMapper<DosareSolr> {
         }
         return new DosareSolr(id,iddosar,numardosar,institutie,data,datamodificarii,stadiu,sectie,obiect,
                 materie,numeparte,calitateparte,datapronuntare,datasedinta,datadocument,complet,documentsedinta,
-                numardocument,ora,solutie,solutiesumar,datadeclarare,partedeclaratoare,tipcaleatac,numardosarvechi,numardosarexact);
+                numardocument,ora,solutie,solutiesumar,datadeclarare,partedeclaratoare,tipcaleatac,numardosarexact);
     }
 }
